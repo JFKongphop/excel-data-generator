@@ -1,5 +1,4 @@
 import { convertArrayToCSV } from 'convert-array-to-csv'
-import fs from 'fs'
 import { writeCSV } from './write-csv.mjs'
 
 const typeOfResidences = ['Single-home', 'Apartment', 'Townhouse', 'Condominium']
@@ -34,11 +33,11 @@ const facilities = ['Kitchen', 'Air conditioning', 'Free parking on premises', '
 'Clothing storage: closet, dresser, and wardrobe', 'Pool table',
 'Cleaning before checkout', 'Central air conditioning',
 'Hotel grade shampoo', 'Children’s dinnerware']
-const checkInTime = ['13:00', '14:00', '15:00', '16:00']
-const checkOutTime = ['11:00', '12:00']
+export const checkInTime = ['13:00', '14:00', '15:00', '16:00']
+export const checkOutTime = ['11:00', '12:00']
 const status = ['Avaliable', 'Booked']
 
-const getRandomItem = (arr) => {
+export const getRandomItem = (arr) => {
   const randomIndex = Math.floor(Math.random() * arr.length);
 
   return arr[randomIndex];
@@ -69,7 +68,7 @@ const getRandomFacilities = (facilities) => {
   return randomFacilitiesJoined;
 }
 
-const getRandomCheckingTime = (checkins, checkouts) => {
+export const getRandomCheckingTime = (checkins, checkouts) => {
   const checkIn = getRandomItem(checkins)
   const checkOut = getRandomItem(checkouts)
 
