@@ -1,7 +1,6 @@
-import {faker} from '@faker-js/faker'
-import chance from 'chance'
 import { convertArrayToCSV } from 'convert-array-to-csv'
 import fs from 'fs'
+import { writeCSV } from './write-csv.mjs'
 
 const typeOfResidences = ['Single-home', 'Apartment', 'Townhouse', 'Condominium']
 const typeOfPlace = ['Entire room', 'Sharing space']
@@ -45,7 +44,7 @@ const getRandomItem = (arr) => {
   return arr[randomIndex];
 }
 
-const getRandomInt = (min, max) => {
+export const getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
@@ -77,9 +76,7 @@ const getRandomCheckingTime = (checkins, checkouts) => {
   return `Check in/out after ${checkIn}, before ${checkOut}`
 }
 
-
-
-function getRandomIntByHundred(min, max) {
+const getRandomIntByHundred = (min, max) => {
   min = Math.floor(min / 100) * 100;
   max = Math.floor(max / 100) * 100;
 
@@ -129,14 +126,5 @@ const csvFile = convertArrayToCSV(arrayCSV, {
   separator: ','
 });
 
-fs.writeFile(`./csv/property-detail.csv`, csvFile, (err) => {
-  if (err) throw err;
-  console.log('done');
-});
 
-// const name =  faker.commerce.product()
-
-// console.log(name)
-
-console.log('test')
-
+writeCSV('property-detail', csvFile)
