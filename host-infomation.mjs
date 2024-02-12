@@ -10,7 +10,8 @@ for (let i = 0; i < 50_000; i++) {
     'h' + faker.string.uuid(),
     faker.company.name(),
     getRandomInt(10, 100),
-    getRandomInt(1, 5)
+    getRandomInt(1, 5),
+    getRandomInt(100_000, 500_000)
   ])
 }
 
@@ -21,6 +22,7 @@ const csvFile = convertArrayToCSV(arrayCSV, {
     'host name', 
     'host reviews', 
     'host rating', 
+    'host revenue'
   ],
   separator: ','
 });

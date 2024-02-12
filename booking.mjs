@@ -1,13 +1,13 @@
 import { writeCSV } from './write-csv.mjs'
 import { faker } from '@faker-js/faker'
 import dayjs from 'dayjs';
-import { checkInTime, checkOutTime, getRandomCheckingTime, getRandomInt, getRandomItem } from './property-detail.mjs';
+import { checkInTime, getRandomIntByHundred, checkOutTime, getRandomCheckingTime, getRandomInt, getRandomItem } from './property-detail.mjs';
 import { convertArrayToCSV } from 'convert-array-to-csv'
 
 
 
-const startDate = new Date('2020-01-01').getTime()
-const stopDate = new Date('2023-01-31').getTime()
+const startDate = new Date('2023-01-01').getTime()
+const stopDate = new Date('2023-12-31').getTime()
 
 const genders = ['Male', 'Female']
 const status = ['Confirmed', 'Pending', 'Cancled']
@@ -27,7 +27,8 @@ for (let i = 0; i < 50_000; i++) {
     getRandomCheckingTime(checkInTime, checkOutTime),
     getRandomItem(status),
     `${night} ${night > 1 ? 'nights' : 'night'}`,
-    getRandomItem(sources)
+    getRandomItem(sources),
+    getRandomIntByHundred(100, 300),
   ])
 }
 
@@ -44,6 +45,7 @@ const csvFile = convertArrayToCSV(arrayCSV, {
     'status',
     'booking amount',
     'booking source',
+    'cleaning fee',
   ],
   separator: ','
 });

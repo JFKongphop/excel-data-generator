@@ -75,7 +75,7 @@ export const getRandomCheckingTime = (checkins, checkouts) => {
   return `Check in/out after ${checkIn}, before ${checkOut}`
 }
 
-const getRandomIntByHundred = (min, max) => {
+export const getRandomIntByHundred = (min, max) => {
   min = Math.floor(min / 100) * 100;
   max = Math.floor(max / 100) * 100;
 
@@ -101,7 +101,7 @@ for (let i = 0; i < 50_000; i++) {
     getRandomItem(status),
     getRandomIntByHundred(500, 5000),
     getRandomIntByHundred(1000, 8000),
-    getRandomIntByHundred(100, 300),
+    
   ])
 }
 
@@ -120,7 +120,7 @@ const csvFile = convertArrayToCSV(arrayCSV, {
     'status',
     'night rate',
     'season rate',
-    'cleaning fee',
+    
   ],
   separator: ','
 });
