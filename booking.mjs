@@ -8,12 +8,12 @@ const startDate = new Date('2023-01-01').getTime()
 const stopDate = new Date('2023-12-31').getTime()
 
 const genders = ['Male', 'Female']
-const status = ['Confirmed', 'Pending', 'Cancled']
+const status = ['Confirmed', 'Pending', 'Cancel']
 const sources = ['Website', 'Application']
 
 const arrayCSV = [];
 for (let i = 0; i < 50_000; i++) {
-  const night = getRandomInt(1, 5)
+  
   arrayCSV.push([
     'b' + faker.string.uuid(),
     dayjs(getRandomInt(startDate, stopDate)).format('YYYY-MM-DD'),
@@ -25,10 +25,9 @@ for (let i = 0; i < 50_000; i++) {
     getRandomCheckingTime(checkInTime, checkOutTime),
     getRandomItem(status),
     getRandomIntByHundred(1000, 5000),
-    `${night} ${night > 1 ? 'nights' : 'night'}`,
+    getRandomInt(1, 5),
     getRandomItem(sources),
     getRandomIntByHundred(100, 300),
-    
   ])
 }
 

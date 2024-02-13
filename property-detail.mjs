@@ -87,6 +87,7 @@ export const getRandomIntByHundred = (min, max) => {
 
 const arrayCSV = [];
 for (let i = 0; i < 50_000; i++) {
+  const season = getRandomIntByHundred(500, 5000)
   arrayCSV.push([
     getRandomItem(typeOfResidences),
     getRandomItem(typeOfPlace),
@@ -99,9 +100,8 @@ for (let i = 0; i < 50_000; i++) {
     getRandomInt(1, 5),
     getRandomInt(10, 100),
     getRandomItem(status),
-    getRandomIntByHundred(500, 5000),
-    getRandomIntByHundred(1000, 8000),
-    
+    season,
+    season + getRandomIntByHundred(2000, 4000),
   ])
 }
 
